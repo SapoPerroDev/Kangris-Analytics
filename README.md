@@ -1,109 +1,187 @@
-# 🛍️ Retail Inventory & Analytics Manager
+# Retail Inventory & Analytics Manager
 
-## 📋 Descripción del Proyecto
+## Descripción del Proyecto
 
 Sistema web completo de gestión de inventario y análisis de ventas para empresas retail. Desarrollado como solución al reto del Hackathon de Programación, este proyecto permite a empresas minoristas controlar su inventario, analizar tendencias de ventas y tomar decisiones basadas en datos.
 
-### 🎯 Problema que Resuelve
+### Problema que Resuelve
 
 Las empresas retail enfrentan desafíos al manejar grandes volúmenes de inventario y ventas de forma manual. Este sistema automatiza el proceso y proporciona:
 
-- ✅ Control eficiente del inventario
-- ✅ Análisis de productos con mayor rotación
-- ✅ Identificación de tendencias de ventas
-- ✅ Recomendaciones inteligentes automáticas
-- ✅ Visualizaciones interactivas para toma de decisiones
-- ✅ Alertas de stock bajo
-- ✅ Comparativas por género, categoría, talla y sucursal
+- Control eficiente del inventario
+- Análisis de productos con mayor rotación
+- Identificación de tendencias de ventas
+- Recomendaciones inteligentes automáticas
+- Visualizaciones interactivas para toma de decisiones
+- Alertas de stock bajo
+- Comparativas por género, categoría, talla y sucursal
 
 ---
 
-## 🚀 Tecnologías Utilizadas
+## Tecnologías Utilizadas
 
-### **Frontend**
-- ⚛️ React 18
-- ⚡ Vite (Build tool ultra rápido)
-- 🎨 TailwindCSS (Diseño moderno y responsive)
-- 📊 Recharts (Visualizaciones interactivas)
-- 🎭 Lucide React (Iconos modernos)
-- 🔄 React Router DOM (Navegación SPA)
-- 📡 Axios (Cliente HTTP)
-- 📅 date-fns (Manejo de fechas)
+### Frontend
+- React 18
+- Vite (Build tool)
+- TailwindCSS (Diseño responsive)
+- Recharts (Visualizaciones)
+- Lucide React (Iconos)
+- React Router DOM (Navegación SPA)
+- Axios (Cliente HTTP)
+- date-fns (Manejo de fechas)
 
-### **Backend**
-- 🟢 Node.js + Express
-- 🍃 MongoDB + Mongoose
-- 🔐 JWT (Autenticación segura)
-- 🔒 bcrypt (Hash de contraseñas)
-- 🛡️ Helmet (Seguridad HTTP)
-- ✅ Express Validator (Validación de datos)
-- 🌐 CORS (Configuración de acceso)
+### Backend
+- Node.js + Express
+- MongoDB + Mongoose
+- JWT (Autenticación)
+- bcrypt (Hash de contraseñas)
+- Helmet (Seguridad HTTP)
+- Express Validator (Validación)
+- CORS (Control de acceso)
 
-### **DevOps & Deployment**
-- 🌍 Netlify (Frontend deployment)
-- 🚂 Render/Railway (Backend deployment)
-- ☁️ MongoDB Atlas (Base de datos cloud)
-- 📦 Git & GitHub (Control de versiones)
+### DevOps & Deployment
+- Render (Deploy fullstack)
+- MongoDB Atlas (Base de datos cloud)
+- Git & GitHub (Control de versiones)
 
 ---
 
-## 🏗️ Arquitectura del Sistema
+## Arquitectura del Sistema
 
 ```
-┌─────────────────────────────────────────────────────────┐
-│                     FRONTEND (React)                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  Dashboard   │  │  Productos   │  │   Ventas     │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  Analytics   │  │  Auth/Login  │  │  Components  │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-└─────────────────────────────────────────────────────────┘
-                          ↕ HTTP/REST API
-┌─────────────────────────────────────────────────────────┐
-│                  BACKEND (Express API)                   │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │  Auth Routes │  │Product Routes│  │ Sales Routes │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │Analytics API │  │ Controllers  │  │  Middleware  │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-└─────────────────────────────────────────────────────────┘
-                          ↕ Mongoose ODM
-┌─────────────────────────────────────────────────────────┐
-│                   DATABASE (MongoDB)                     │
-│  ┌──────────────┐  ┌──────────────┐  ┌──────────────┐  │
-│  │    Users     │  │   Products   │  │    Sales     │  │
-│  └──────────────┘  └──────────────┘  └──────────────┘  │
-└─────────────────────────────────────────────────────────┘
+Frontend (React)
+    ↓ HTTP REST API
+Backend (Express)
+    ↓ Mongoose ODM
+Database (MongoDB)
 ```
+
+Ver detalles completos en: `ARQUITECTURA.md`
 
 ---
 
-## 📊 Características Principales
+## Instalación y Configuración
 
-### 🎯 **Dashboard Interactivo**
-- KPIs en tiempo real (ventas, ingresos, ganancias)
+### Prerrequisitos
+
+```bash
+Node.js v18+
+MongoDB (local o Atlas)
+Git
+```
+
+### Paso 1: Clonar el Repositorio
+
+```bash
+git clone https://github.com/SapoPerroDev/kangris.git
+cd kangris
+```
+
+### Paso 2: Instalar Dependencias
+
+```bash
+# Backend
+npm install
+
+# Frontend
+cd frontend
+npm install
+cd ..
+```
+
+### Paso 3: Configurar Variables de Entorno
+
+Crear archivo `.env` en la raíz:
+
+```env
+PORT=5000
+NODE_ENV=development
+MONGODB_URI=mongodb://localhost:27017/retail_inventory
+JWT_SECRET=tu_clave_secreta_super_segura
+JWT_EXPIRE=7d
+CLIENT_URL=http://localhost:5173
+```
+
+Crear archivo `frontend/.env`:
+
+```env
+VITE_API_URL=http://localhost:5000/api
+```
+
+### Paso 4: Poblar Base de Datos
+
+```bash
+npm run seed
+```
+
+Esto creará:
+- 3 usuarios (admin, gerente, vendedor)
+- 56 productos
+- 250 ventas de los últimos 90 días
+
+**Credenciales de acceso:**
+- Admin: admin@retail.com / admin123
+- Gerente: gerente@retail.com / gerente123
+- Vendedor: vendedor@retail.com / vendedor123
+
+### Paso 5: Ejecutar el Proyecto
+
+```bash
+# Backend y Frontend juntos
+npm run dev:all
+
+# O por separado:
+# Terminal 1: npm run server
+# Terminal 2: cd frontend && npm run dev
+```
+
+### Paso 6: Acceder a la Aplicación
+
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:5000
+
+---
+
+## Despliegue en Producción
+
+Ver guía completa en: `DEPLOY_RENDER.md`
+
+### Resumen:
+
+1. Crear cuenta en MongoDB Atlas
+2. Crear cuenta en Render
+3. Conectar repositorio de GitHub
+4. Configurar variables de entorno
+5. Deploy automático
+
+**Tiempo total: 15 minutos**
+
+---
+
+## Características Principales
+
+### Dashboard Interactivo
+- KPIs en tiempo real (ventas, ingresos, ganancia, ticket promedio)
 - Gráficos de productos más vendidos
 - Distribución de ventas por género
 - Análisis por categoría y sucursal
 - Recomendaciones inteligentes automáticas
 
-### 📦 **Gestión de Productos**
+### Gestión de Productos
 - Catálogo completo de productos
 - Filtros por categoría, género y talla
 - Búsqueda en tiempo real
 - Alertas de stock bajo
 - Indicadores de estado de inventario
 
-### 💰 **Registro de Ventas**
+### Registro de Ventas
 - Historial completo de transacciones
 - Filtros por sucursal y fecha
 - Estadísticas de rendimiento
 - Múltiples métodos de pago
 - Cálculo automático de ganancias
 
-### 📈 **Análisis Avanzado**
+### Análisis Avanzado
 - Top productos más vendidos
 - Tendencias de ventas por período
 - Análisis por género (gráfico circular)
@@ -112,7 +190,7 @@ Las empresas retail enfrentan desafíos al manejar grandes volúmenes de inventa
 - Rendimiento por sucursal
 - Comparativas temporales
 
-### 🤖 **Recomendaciones Inteligentes**
+### Recomendaciones Inteligentes
 - Detección de productos con stock bajo
 - Identificación de productos de baja rotación
 - Sugerencias de reposición para productos estrella
@@ -120,240 +198,69 @@ Las empresas retail enfrentan desafíos al manejar grandes volúmenes de inventa
 
 ---
 
-## 🎮 Instalación y Configuración
-
-### **Prerrequisitos**
-
-```bash
-Node.js v18 o superior
-MongoDB instalado localmente o cuenta en MongoDB Atlas
-Git
-```
-
-### **1. Clonar el Repositorio**
-
-```bash
-git clone https://github.com/tu-usuario/empresa-retail.git
-cd empresa-retail
-```
-
-### **2. Configurar Backend**
-
-```bash
-# Instalar dependencias
-npm install
-
-# Crear archivo .env (copiar desde .env.example)
-cp .env.example .env
-
-# Editar .env con tus configuraciones
-# PORT=5000
-# MONGODB_URI=mongodb://localhost:27017/retail_inventory
-# JWT_SECRET=tu_clave_secreta_super_segura
-# CLIENT_URL=http://localhost:5173
-```
-
-### **3. Poblar Base de Datos con Datos de Prueba**
-
-```bash
-npm run seed
-```
-
-Esto creará:
-- ✅ 3 usuarios (admin, gerente, vendedor)
-- ✅ 60+ productos con categorías variadas
-- ✅ 250 ventas de los últimos 90 días
-
-**Credenciales de acceso:**
-- 👤 **Admin**: admin@retail.com / admin123
-- 👤 **Gerente**: gerente@retail.com / gerente123
-- 👤 **Vendedor**: vendedor@retail.com / vendedor123
-
-### **4. Configurar Frontend**
-
-```bash
-cd frontend
-
-# Instalar dependencias
-npm install
-
-# Crear archivo .env
-echo "VITE_API_URL=http://localhost:5000/api" > .env
-```
-
-### **5. Ejecutar el Proyecto**
-
-**Opción A: Ejecutar Backend y Frontend por separado**
-
-```bash
-# Terminal 1 - Backend
-npm run server
-
-# Terminal 2 - Frontend
-cd frontend
-npm run dev
-```
-
-**Opción B: Ejecutar ambos simultáneamente** (requiere instalar concurrently)
-
-```bash
-npm run dev:all
-```
-
-### **6. Acceder a la Aplicación**
-
-🌐 **Frontend**: http://localhost:5173
-🔧 **Backend API**: http://localhost:5000
-
----
-
-## 🚀 Despliegue en Producción
-
-### **Deploy Frontend en Netlify**
-
-1. **Crear cuenta en [Netlify](https://netlify.com)**
-
-2. **Conectar repositorio de GitHub**
-
-3. **Configurar build settings:**
-   ```
-   Build command: cd frontend && npm install && npm run build
-   Publish directory: frontend/dist
-   ```
-
-4. **Agregar variable de entorno:**
-   ```
-   VITE_API_URL=https://tu-backend.onrender.com/api
-   ```
-
-5. **Deploy automático** ✅
-
-### **Deploy Backend en Render**
-
-1. **Crear cuenta en [Render](https://render.com)**
-
-2. **Crear nuevo Web Service**
-
-3. **Conectar repositorio de GitHub**
-
-4. **Configurar:**
-   ```
-   Build Command: npm install
-   Start Command: npm run server
-   ```
-
-5. **Agregar variables de entorno:**
-   ```
-   NODE_ENV=production
-   MONGODB_URI=mongodb+srv://...
-   JWT_SECRET=tu_secreto_seguro
-   CLIENT_URL=https://tu-frontend.netlify.app
-   ```
-
-6. **Deploy automático** ✅
-
-### **Base de Datos en MongoDB Atlas**
-
-1. **Crear cuenta en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)**
-
-2. **Crear cluster gratuito**
-
-3. **Obtener connection string**
-
-4. **Agregar IP whitelist: 0.0.0.0/0** (para permitir conexiones desde Render)
-
-5. **Usar el connection string en MONGODB_URI**
-
----
-
-## 📱 Capturas de Pantalla
-
-### Dashboard Principal
-![Dashboard](https://via.placeholder.com/800x400?text=Dashboard+con+KPIs+y+Graficos)
-
-### Gestión de Productos
-![Productos](https://via.placeholder.com/800x400?text=Catalogo+de+Productos)
-
-### Análisis Avanzado
-![Analytics](https://via.placeholder.com/800x400?text=Analisis+y+Visualizaciones)
-
----
-
-## 🎯 KPIs Implementados
+## KPIs Implementados
 
 | KPI | Descripción | Cálculo |
 |-----|-------------|---------|
-| **Ventas Totales** | Número total de transacciones | COUNT(sales) |
-| **Ingresos** | Suma total de ventas | SUM(totalAmount) |
-| **Ganancia** | Ganancia neta (ingresos - costos) | SUM(totalProfit) |
-| **Ticket Promedio** | Valor promedio por venta | AVG(totalAmount) |
-| **Margen de Ganancia** | Porcentaje de ganancia | (profit / revenue) * 100 |
-| **Productos Más Vendidos** | Top productos por unidades | GROUP BY product |
-| **Rotación por Categoría** | Ventas por tipo de producto | GROUP BY category |
-| **Ventas por Sucursal** | Performance por ubicación | GROUP BY branch |
-| **Tallas Más Vendidas** | Análisis de preferencias | GROUP BY size |
+| Ventas Totales | Número total de transacciones | COUNT(sales) |
+| Ingresos | Suma total de ventas | SUM(totalAmount) |
+| Ganancia | Ganancia neta | SUM(totalProfit) |
+| Ticket Promedio | Valor promedio por venta | AVG(totalAmount) |
+| Margen de Ganancia | Porcentaje de ganancia | (profit / revenue) * 100 |
+| Productos Más Vendidos | Top productos por unidades | GROUP BY product |
+| Rotación por Categoría | Ventas por tipo de producto | GROUP BY category |
+| Ventas por Sucursal | Performance por ubicación | GROUP BY branch |
+| Tallas Más Vendidas | Análisis de preferencias | GROUP BY size |
 
 ---
 
-## 🔐 Seguridad Implementada
+## Seguridad Implementada
 
-- ✅ **JWT** para autenticación stateless
-- ✅ **bcrypt** para hash de contraseñas
-- ✅ **Helmet** para headers de seguridad HTTP
-- ✅ **CORS** configurado apropiadamente
-- ✅ **Validación de inputs** con express-validator
-- ✅ **Variables de entorno** para credenciales
-- ✅ **Middleware de autenticación** en rutas protegidas
-- ✅ **Control de roles** (admin, manager, vendedor)
-
----
-
-## 🧪 Testing
-
-```bash
-# Ejecutar tests (cuando se implementen)
-npm test
-
-# Coverage
-npm run test:coverage
-```
+- JWT para autenticación stateless
+- bcrypt para hash de contraseñas
+- Helmet para headers de seguridad HTTP
+- CORS configurado apropiadamente
+- Validación de inputs con express-validator
+- Variables de entorno para credenciales
+- Middleware de autenticación en rutas protegidas
+- Control de roles (admin, manager, vendedor)
 
 ---
 
-## 📁 Estructura del Proyecto
+## Estructura del Proyecto
 
 ```
 Empresa_retail/
 ├── backend/
 │   ├── config/
-│   │   └── database.js           # Configuración MongoDB
+│   │   └── database.js
 │   ├── controllers/
-│   │   ├── authController.js     # Login/Register
-│   │   ├── productController.js  # CRUD Productos
-│   │   ├── saleController.js     # Gestión de ventas
-│   │   └── analyticsController.js # KPIs y análisis
+│   │   ├── authController.js
+│   │   ├── productController.js
+│   │   ├── saleController.js
+│   │   └── analyticsController.js
 │   ├── middleware/
-│   │   ├── auth.js               # Autenticación JWT
-│   │   └── errorHandler.js       # Manejo de errores
+│   │   ├── auth.js
+│   │   └── errorHandler.js
 │   ├── models/
-│   │   ├── User.js               # Modelo de usuarios
-│   │   ├── Product.js            # Modelo de productos
-│   │   └── Sale.js               # Modelo de ventas
+│   │   ├── User.js
+│   │   ├── Product.js
+│   │   └── Sale.js
 │   ├── routes/
 │   │   ├── authRoutes.js
 │   │   ├── productRoutes.js
 │   │   ├── saleRoutes.js
 │   │   └── analyticsRoutes.js
 │   ├── scripts/
-│   │   └── seedData.js           # Datos de prueba
-│   └── server.js                 # Entry point
+│   │   └── seedData.js
+│   └── server.js
 │
 ├── frontend/
 │   ├── src/
 │   │   ├── components/
-│   │   │   └── Layout.jsx        # Layout principal
+│   │   │   └── Layout.jsx
 │   │   ├── context/
-│   │   │   └── AuthContext.jsx   # Context de autenticación
+│   │   │   └── AuthContext.jsx
 │   │   ├── pages/
 │   │   │   ├── Login.jsx
 │   │   │   ├── Dashboard.jsx
@@ -361,7 +268,7 @@ Empresa_retail/
 │   │   │   ├── Sales.jsx
 │   │   │   └── Analytics.jsx
 │   │   ├── services/
-│   │   │   └── api.js            # Cliente API
+│   │   │   └── api.js
 │   │   ├── App.jsx
 │   │   ├── main.jsx
 │   │   └── index.css
@@ -369,114 +276,95 @@ Empresa_retail/
 │   ├── vite.config.js
 │   ├── tailwind.config.js
 │   ├── postcss.config.js
-│   ├── package.json
-│   └── netlify.toml             # Configuración Netlify
+│   └── package.json
 │
 ├── .gitignore
 ├── package.json
-├── render.yaml                  # Configuración Render
+├── render.yaml
 └── README.md
 ```
 
 ---
 
-## 🎨 Diseño y UX
+## Equipo y Roles
 
-### Principios de Diseño Aplicados
-
-- 🎯 **Simplicidad**: Interfaz limpia y clara
-- 📱 **Responsive**: Funciona en todos los dispositivos
-- ⚡ **Performance**: Carga rápida con Vite
-- 🎨 **Modernidad**: Diseño con TailwindCSS
-- ♿ **Accesibilidad**: Contraste y navegación por teclado
-- 🌈 **Consistencia**: Paleta de colores unificada
-
-### Paleta de Colores
-
-| Color | Uso | Código |
-|-------|-----|--------|
-| 🔵 Primary | Acciones principales | `#3b82f6` |
-| 🟢 Success | Operaciones exitosas | `#10b981` |
-| 🟡 Warning | Alertas y advertencias | `#f59e0b` |
-| 🔴 Danger | Errores y acciones críticas | `#ef4444` |
-| 🟣 Info | Información adicional | `#8b5cf6` |
-
----
-
-## 👥 Equipo y Roles
-
-### **Team Retail Analytics**
+### Team Retail Analytics
 
 | Nombre | Rol | Especialidad | Responsabilidades |
 |--------|-----|--------------|-------------------|
-| **Juliana** | Scrum Master & Full Stack Developer | Arquitectura & Deployment | • Facilitación Scrum<br>• Arquitectura sistema<br>• Deploy Render<br>• Documentación<br>• Auth & Routes |
-| **Isabela** | Product Owner & Frontend Developer | UI/UX & Visualizaciones | • Product Backlog<br>• Dashboard interactivo<br>• 8+ Gráficos Recharts<br>• Responsive design<br>• UX Testing |
-| **Alejandro** | Development Team & Backend Developer | Backend & Algoritmos | • API REST Express<br>• MongoDB Models<br>• Lógica de negocio<br>• Recomendaciones IA<br>• Seed Data (250 ventas) |
+| Juliana Chantre Astudillo | Scrum Master & Full Stack Developer | Arquitectura & Deployment | Facilitación Scrum, Arquitectura sistema, Deploy Render, Documentación, Auth & Routes |
+| Isabella Velasco Idrobo | Product Owner & Frontend Developer | UI/UX & Visualizaciones | Product Backlog, Dashboard interactivo, Gráficos Recharts, Responsive design, UX Testing |
+| Brayan Alejandro Gutiérrez López | Development Team & Backend Developer | Backend & Algoritmos | API REST Express, MongoDB Models, Lógica de negocio, Recomendaciones IA, Seed Data |
 
 **Metodología:** Scrum (Sprint de 8 horas)  
-**Patrones de Diseño:** MVC, Repository, Middleware, Context API, Strategy, +5 más  
+**Patrones de Diseño:** MVC, Repository, Middleware, Context API, Strategy, Singleton, Observer, HOC, Factory, Component Composition  
 **Control de Versiones:** GitHub con GitFlow  
 
 ---
 
-## 📈 Roadmap Futuro
+## Patrones de Diseño Implementados
 
-### Versión 2.0
-- [ ] Sistema de notificaciones push
-- [ ] Exportación de reportes a PDF/Excel
-- [ ] Integración con pasarelas de pago
-- [ ] App móvil (React Native)
-- [ ] Sistema de cupones y descuentos
+1. **MVC** - Arquitectura general (Model-View-Controller)
+2. **Repository** - Abstracción de acceso a datos
+3. **Middleware** - Pipeline de procesamiento de requests
+4. **Context API** - Manejo de estado global
+5. **Component Composition** - Componentes reutilizables
+6. **HOC** - Higher-Order Components para rutas protegidas
+7. **Factory** - Creación de modelos con Mongoose
+8. **Strategy** - Algoritmos de recomendación intercambiables
+9. **Observer** - React Hooks para reactividad
+10. **Singleton** - Conexión única a base de datos
 
-### Versión 3.0
-- [ ] Machine Learning para predicción de demanda
-- [ ] Chatbot con IA para atención al cliente
-- [ ] Sistema de fidelización de clientes
-- [ ] Integración con marketplaces
-- [ ] Multi-idioma (i18n)
+Ver detalles en: `PATRONES_DISEÑO.md`
 
 ---
 
-## 🤝 Contribuir
+## Roadmap Futuro
 
-Las contribuciones son bienvenidas! Por favor:
+### Versión 2.0
+- Tests unitarios completos
+- CI/CD con GitHub Actions
+- PWA - App instalable
+- Notificaciones push
+- Export reportes a PDF/Excel
+
+### Versión 3.0
+- Machine Learning para predicción de demanda
+- Chatbot con IA para atención al cliente
+- Sistema de fidelización de clientes
+- Integración con marketplaces
+- Multi-idioma (i18n)
+
+---
+
+## Contribuir
+
+Las contribuciones son bienvenidas. Por favor:
 
 1. Fork el proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'Add some AmazingFeature'`)
+3. Commit tus cambios (`git commit -m 'feat: add amazing feature'`)
 4. Push a la rama (`git push origin feature/AmazingFeature`)
 5. Abre un Pull Request
 
 ---
 
-## 📝 Licencia
+## Licencia
 
-Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
+Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
 
 ---
 
-## 📞 Contacto
+## Contacto
 
 **Equipo Retail Analytics**
 
-- 📧 Email: team@retailanalytics.com
-- 🌐 Website: https://retailanalytics.com
-- 💼 LinkedIn: [Tu LinkedIn]
-- 🐙 GitHub: [Tu GitHub]
+- GitHub: https://github.com/SapoPerroDev/kangris
+- Repositorio: kangris
 
 ---
 
-## 🙏 Agradecimientos
-
-- Hackathon organizers
-- MongoDB Atlas por el hosting gratuito
-- Netlify y Render por el deployment gratuito
-- Comunidad de React y Node.js
-- TailwindCSS y Recharts por sus increíbles herramientas
-
----
-
-## 🎓 Presentación del Proyecto
+## Presentación del Proyecto
 
 ### Resumen Ejecutivo
 
@@ -487,18 +375,13 @@ Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) par
 **Tecnologías:** React, Node.js, MongoDB, TailwindCSS, Recharts.
 
 **Resultados:**
-- ✅ Reducción 80% en tiempo de análisis
-- ✅ Visualización clara de tendencias
-- ✅ Alertas automáticas de stock
-- ✅ Recomendaciones basadas en datos
+- Reducción 80% en tiempo de análisis
+- Visualización clara de tendencias
+- Alertas automáticas de stock
+- Recomendaciones basadas en datos
 
-**Demo:** [Link a demo en vivo]
-
----
-
-**⭐ Si este proyecto te fue útil, no olvides dar una estrella en GitHub!**
+**Demo:** https://github.com/SapoPerroDev/kangris
 
 ---
 
-Made with ❤️ by Team Retail Analytics
-
+Made by Team Retail Analytics - Juliana Chantre, Isabella Velasco, Brayan Alejandro Gutiérrez
