@@ -42,20 +42,21 @@ if (process.env.NODE_ENV === 'development') {
   app.use(morgan('dev'));
 }
 
-// Ruta de bienvenida
-app.get('/', (req, res) => {
-  res.json({
-    success: true,
-    message: '🛍️ API Retail Inventory Manager',
-    version: '1.0.0',
-    endpoints: {
-      auth: '/api/auth',
-      products: '/api/products',
-      sales: '/api/sales',
-      analytics: '/api/analytics'
-    }
+if (process.env.NODE_ENV !== 'production') {
+  app.get('/', (req, res) => {
+    res.json({
+      success: true,
+      message: '🛍️ API Retail Inventory Manager',
+      version: '1.0.0',
+      endpoints: {
+        auth: '/api/auth',
+        products: '/api/products',
+        sales: '/api/sales',
+        analytics: '/api/analytics'
+      }
+    });
   });
-});
+}
 
 // Health check
 app.get('/health', (req, res) => {
@@ -99,9 +100,9 @@ app.use(errorHandler);
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`\n🚀 Servidor corriendo en puerto ${PORT}`);
-  console.log(`📊 Ambiente: ${process.env.NODE_ENV || 'development'}`);
-  console.log(`🌐 URL: http://localhost:${PORT}\n`);
+  console.log(`\nServidor corriendo en puerto ${PORT}`);
+  console.log(`Ambiente: ${process.env.NODE_ENV || 'development'}`);
+  console.log(`URL: http://localhost:${PORT}\n`);
 });
 
 export default app;
