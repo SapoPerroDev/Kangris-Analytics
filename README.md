@@ -22,27 +22,22 @@ Las empresas retail enfrentan desafíos al manejar grandes volúmenes de inventa
 
 ### Frontend
 - React 18
-- Vite (Build tool)
-- TailwindCSS (Diseño responsive)
-- Recharts (Visualizaciones)
-- Lucide React (Iconos)
-- React Router DOM (Navegación SPA)
-- Axios (Cliente HTTP)
-- date-fns (Manejo de fechas)
+- Vite
+- TailwindCSS
+- React Router DOM
+- Axios
 
 ### Backend
 - Node.js + Express
-- MongoDB + Mongoose
-- JWT (Autenticación)
-- bcrypt (Hash de contraseñas)
-- Helmet (Seguridad HTTP)
-- Express Validator (Validación)
-- CORS (Control de acceso)
+- MongoDB
+- JWT
+- bcrypt
+- CORS
 
-### DevOps & Deployment
-- Render (Deploy fullstack)
-- MongoDB Atlas (Base de datos cloud)
-- Git & GitHub (Control de versiones)
+### Deployment
+- Render
+- MongoDB Atlas
+- Git & GitHub
 
 ---
 
@@ -55,9 +50,6 @@ Backend (Express)
     ↓ Mongoose ODM
 Database (MongoDB)
 ```
-
-Ver detalles completos en: `ARQUITECTURA.md`
-
 ---
 
 ## Instalación y Configuración
@@ -140,24 +132,6 @@ npm run dev:all
 - Frontend: http://localhost:5173
 - Backend API: http://localhost:5000
 
----
-
-## Despliegue en Producción
-
-Ver guía completa en: `DEPLOY_RENDER.md`
-
-### Resumen:
-
-1. Crear cuenta en MongoDB Atlas
-2. Crear cuenta en Render
-3. Conectar repositorio de GitHub
-4. Configurar variables de entorno
-5. Deploy automático
-
-**Tiempo total: 15 minutos**
-
----
-
 ## Características Principales
 
 ### Dashboard Interactivo
@@ -225,66 +199,6 @@ Ver guía completa en: `DEPLOY_RENDER.md`
 - Middleware de autenticación en rutas protegidas
 - Control de roles (admin, manager, vendedor)
 
----
-
-## Estructura del Proyecto
-
-```
-Empresa_retail/
-├── backend/
-│   ├── config/
-│   │   └── database.js
-│   ├── controllers/
-│   │   ├── authController.js
-│   │   ├── productController.js
-│   │   ├── saleController.js
-│   │   └── analyticsController.js
-│   ├── middleware/
-│   │   ├── auth.js
-│   │   └── errorHandler.js
-│   ├── models/
-│   │   ├── User.js
-│   │   ├── Product.js
-│   │   └── Sale.js
-│   ├── routes/
-│   │   ├── authRoutes.js
-│   │   ├── productRoutes.js
-│   │   ├── saleRoutes.js
-│   │   └── analyticsRoutes.js
-│   ├── scripts/
-│   │   └── seedData.js
-│   └── server.js
-│
-├── frontend/
-│   ├── src/
-│   │   ├── components/
-│   │   │   └── Layout.jsx
-│   │   ├── context/
-│   │   │   └── AuthContext.jsx
-│   │   ├── pages/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   ├── Products.jsx
-│   │   │   ├── Sales.jsx
-│   │   │   └── Analytics.jsx
-│   │   ├── services/
-│   │   │   └── api.js
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── index.html
-│   ├── vite.config.js
-│   ├── tailwind.config.js
-│   ├── postcss.config.js
-│   └── package.json
-│
-├── .gitignore
-├── package.json
-├── render.yaml
-└── README.md
-```
-
----
 
 ## Equipo y Roles
 
@@ -295,93 +209,8 @@ Empresa_retail/
 | Juliana Chantre Astudillo | Scrum Master & Full Stack Developer | Arquitectura & Deployment | Facilitación Scrum, Arquitectura sistema, Deploy Render, Documentación, Auth & Routes |
 | Isabella Velasco Idrobo | Product Owner & Frontend Developer | UI/UX & Visualizaciones | Product Backlog, Dashboard interactivo, Gráficos Recharts, Responsive design, UX Testing |
 | Brayan Alejandro Gutiérrez López | Development Team & Backend Developer | Backend & Algoritmos | API REST Express, MongoDB Models, Lógica de negocio, Recomendaciones IA, Seed Data |
-
-**Metodología:** Scrum (Sprint de 8 horas)  
-**Patrones de Diseño:** MVC, Repository, Middleware, Context API, Strategy, Singleton, Observer, HOC, Factory, Component Composition  
+ 
+**Patrones de Diseño:** MVC, Repository, Middleware, Singleton, Observer, Factory 
 **Control de Versiones:** GitHub con GitFlow  
 
----
-
-## Patrones de Diseño Implementados
-
-1. **MVC** - Arquitectura general (Model-View-Controller)
-2. **Repository** - Abstracción de acceso a datos
-3. **Middleware** - Pipeline de procesamiento de requests
-4. **Context API** - Manejo de estado global
-5. **Component Composition** - Componentes reutilizables
-6. **HOC** - Higher-Order Components para rutas protegidas
-7. **Factory** - Creación de modelos con Mongoose
-8. **Strategy** - Algoritmos de recomendación intercambiables
-9. **Observer** - React Hooks para reactividad
-10. **Singleton** - Conexión única a base de datos
-
-Ver detalles en: `PATRONES_DISEÑO.md`
-
----
-
-## Roadmap Futuro
-
-### Versión 2.0
-- Tests unitarios completos
-- CI/CD con GitHub Actions
-- PWA - App instalable
-- Notificaciones push
-- Export reportes a PDF/Excel
-
-### Versión 3.0
-- Machine Learning para predicción de demanda
-- Chatbot con IA para atención al cliente
-- Sistema de fidelización de clientes
-- Integración con marketplaces
-- Multi-idioma (i18n)
-
----
-
-## Contribuir
-
-Las contribuciones son bienvenidas. Por favor:
-
-1. Fork el proyecto
-2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
-3. Commit tus cambios (`git commit -m 'feat: add amazing feature'`)
-4. Push a la rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
-
----
-
-## Licencia
-
-Este proyecto está bajo la Licencia MIT - ver el archivo LICENSE para más detalles.
-
----
-
-## Contacto
-
-**Equipo Retail Analytics**
-
-- GitHub: https://github.com/SapoPerroDev/kangris
-- Repositorio: kangris
-
----
-
-## Presentación del Proyecto
-
-### Resumen Ejecutivo
-
-**Problema:** Empresas retail manejan inventarios grandes de forma manual, sin análisis eficiente.
-
-**Solución:** Sistema web completo con dashboard interactivo, análisis en tiempo real y recomendaciones inteligentes.
-
-**Tecnologías:** React, Node.js, MongoDB, TailwindCSS, Recharts.
-
-**Resultados:**
-- Reducción 80% en tiempo de análisis
-- Visualización clara de tendencias
-- Alertas automáticas de stock
-- Recomendaciones basadas en datos
-
-**Demo:** https://github.com/SapoPerroDev/kangris
-
----
-
-Made by Team Retail Analytics - Juliana Chantre, Isabella Velasco, Brayan Alejandro Gutiérrez
+Made by Team Kangris Analytics - Juliana Chantre, Isabella Velasco, Brayan Alejandro Gutiérrez
